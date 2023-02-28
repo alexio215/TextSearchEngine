@@ -1,3 +1,10 @@
+"""
+Similar to matching.py, but search returns an ordered (ranked) results. In matching.py the results
+from search are logically unordered (could be returned in any order). If we want to return 10 "best"
+results from search in this file, you can just take the first 10 results. For search in matching.py
+"best" has to be defined externally to introduce logical order to the returned results.
+"""
+
 import json
 import typing
 
@@ -34,6 +41,7 @@ def search(query: str, documents: typing.List[str]) -> typing.List[str]:
 def run_search():
     with open(r'C:\Users\Alex\Documents\DePaul\datasets\wiki_small\wiki_small.json') as fp:
         data = json.load(fp)
+
     documents = [record['init_text'] for record in data]
     query = input("Please enter a query:")
     while query:
